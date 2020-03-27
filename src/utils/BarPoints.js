@@ -46,10 +46,10 @@ const BarPoints = function (list, xKey, yKey) {
 
 BarPoints.prototype.getBarWidth = function () {
     const len = this.listInfo.data.length
-    if (len <= 5) return 200
-    else if (5 < len <= 15) return 60
-    else if (15 < len <= 30) return 40
-    else return 20
+    if (len <= 5) return 100
+    else if (5 < len <= 15) return 40
+    else if (15 < len <= 30) return 20
+    else return 10
 }
 
 BarPoints.prototype.getListInfo = function (list) {
@@ -82,7 +82,7 @@ BarPoints.prototype.createMiddlePoint = function () {
     const { middleItem } = this.listInfo.info
     const xM = this.middleX - this.barWidth/2
     const yM = this.processY(middleItem[this.yKey])
-    const middlePoint = { xLabel: middleItem[this.xKey].toString() ,x: xM, y: yM, color: middleItem.color}
+    const middlePoint = { xLabel: `${middleItem[this.xKey]}` ,x: xM, y: yM, color: middleItem.color}
     return middlePoint
 }
 
@@ -107,12 +107,12 @@ BarPoints.prototype.createLeftRightPoints = function () {
     const { startXLeft, startXRight } = this.startXs
     let points = []
     sortList(leftList, false, this.yKey).reduce((accX, curr) => {
-        points.push({ xLabel: curr[this.xKey], x: accX, y: this.processY(curr[this.yKey]), color: curr.color})
+        points.push({ xLabel: `${curr[this.xKey]}`, x: accX, y: this.processY(curr[this.yKey]), color: curr.color})
         return accX + (-1)*(this.barWidth + this.between)
     }, startXLeft)
 
     rightList.reduce((accX, curr) => {
-        points.push({  xLabel: curr[this.xKey], x: accX, y: this.processY(curr[this.yKey]), color: curr.color})
+        points.push({  xLabel: `${curr[this.xKey]}`, x: accX, y: this.processY(curr[this.yKey]), color: curr.color})
         return accX + (this.barWidth + this.between)
     }, startXRight)
     

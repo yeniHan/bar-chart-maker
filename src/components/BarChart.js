@@ -22,11 +22,11 @@ const BarChart = ({pointsObj}) => {
                     )
                 })}
             </svg>
-            <svg width={paperWidth} height={15}>
+            <svg width={paperWidth} height={30}>
                 {points.map(p => {
                     const { xLabel, x, y, color } = p
                     return (
-                        <text x={x} y={15} fill="black" font-size="10">{`${xLabel}`.slice(0, 5)}</text>
+                        <text x={x} y={15} fill="black" font-size="10">{xLabel.length > 6 ? `${xLabel.slice(0, 7)}..`: xLabel}</text>
                     )
                 })}
             </svg>
