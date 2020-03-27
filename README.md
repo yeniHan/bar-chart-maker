@@ -7,7 +7,7 @@ BarPoints의 prototype으로 지정된 getPoints() 함수를 통해, 막대그�
 </p>
 <br/>
 <br/>
-<h1>사용법</h1>
+<h1><b>Bar Chart Maker</b> 사용법</h1>
 <p>
 1. cvs 파일를 첨부<br/>
 2. x 축 과 y 축 설정<br/>
