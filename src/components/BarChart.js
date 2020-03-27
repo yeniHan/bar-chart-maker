@@ -6,19 +6,19 @@ const BarChart = ({pointsObj}) => {
     const [points, setPoints] = useState([])
     
     useEffect(() => {
-        console.log('pO:', pointsObj)
-        console.log('pointss:', pointsObj.getPoints())
         setPoints(pointsObj.getPoints())
     }, [pointsObj])
 
     const { paperWidth, paperHeight, barWidth } = pointsObj
+    console.log('points:', points)
+    
     return (
         <div className="bar-chart">
             <svg width={paperWidth} height={paperHeight}>
                 {points.map(p => {
                     const { xLabel, x, y, color } = p
                     return (
-                            <rect x={x} y={paperHeight - y} width={barWidth} height={y} fill={color ? color: defaultColor} />
+                        <rect x={x} y={paperHeight - y} width={barWidth} height={y} fill={color ? color: defaultColor} />
                     )
                 })}
             </svg>

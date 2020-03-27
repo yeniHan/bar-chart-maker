@@ -8,14 +8,15 @@ import BarChart from './components/BarChart';
 function App() {
   const [ dataList, setDataList ] = useState(null)
   const [ pointsObj, setPointsObj ] = useState(null)
-  const [ xKey, setXKey ] = useState(null) 
-  const [ yKey, setYKey ] = useState(null) 
+  const [ xKey, setXKey ] = useState("None") 
+  const [ yKey, setYKey ] = useState("None")
 
   const onChangeFile = (dataList) => {
     setDataList(dataList)
     setPointsObj(null)
-    setXKey(null)
-    setYKey(null)
+    setXKey("None")
+    setYKey("None")
+    
   }
 
   const setColor = (idx, color) => {

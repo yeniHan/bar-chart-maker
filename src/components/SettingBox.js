@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { CirclePicker } from 'react-color';
 import './SettingBox.scss';
+import { InputLabel, Select, MenuItem} from "@material-ui/core";
 
 const SettingBox = ({dataList, createBarChart, setColor, xKey, yKey, setXKey, setYKey}) => {
     const keys = Object.keys(dataList[0])
@@ -8,18 +9,21 @@ const SettingBox = ({dataList, createBarChart, setColor, xKey, yKey, setXKey, se
     return (
         <div className="setting-box">
             <div className="axis-setting"> 
-                <div>X축: {xKey? xKey: '지정 안됨'} <select onChange={(e) => setXKey(e.target.value)}>
-                    <option value={null}>Select</option>
-                {
-                    keys.map((key,idx) => <option key={idx} value={key}>{key.replace( /"/g , '')}</option>)
-                }</select></div>
-                <div>Y축: {yKey? yKey.replace( /"/g , ''): '지정 안됨'}<select onChange={(e) => setYKey(e.target.value)}>
-                    <option value={null}>Select</option>
-                {
-                    keys.map((key, idx) => <option key={idx} value={key}>{key.replace( /"/g , '')}</option>)
-                }</select></div>
+                <div className="select-axis">
+                    <InputLabel>X 축&nbsp;&nbsp;</InputLabel>
+                    <Select onChange={(e) => setXKey(e.target.value)} value={xKey}>
+                        <MenuItem key="null" value="None">None</MenuItem>
+                        {keys.map((key,idx) => <MenuItem key={idx} value={key}>{key.replace( /"/g , '')}</MenuItem>)}
+                    </Select></div>
+                <div className="select-axis">
+                    <InputLabel>Y 축&nbsp;&nbsp;</InputLabel>
+                    <Select onChange={(e) => setYKey(e.target.value)} value={yKey}>
+                        <MenuItem key="null" value="None">None</MenuItem>
+                        {keys.map((key, idx) => <MenuItem key={idx} value={key}>{key.replace( /"/g , '')}</MenuItem>)}
+                    </Select>
+                </div>
             </div>
-            {(xKey && yKey) &&
+            {(xKey !== "None" && yKey !== "None") &&
                 <>
                     <div class="color-setting">
                         <h4>각 데이터의 색상을 지정하세요.</h4>
