@@ -1,15 +1,10 @@
 company,numEmps,category,city,state,fundedDate,raisedAmt,raisedCurrency,round
 LifeLock,,web,Tempe,AZ,1-May-07,6850000,USD,b
-lLifeLock,,web,Tempe,AZ,1-Oct-06,6000000,USD,a
-LifeLock,,web,Tempe,AZ,1-Jan-08,25000000,USD,c
 MyCityFaces,7,web,Scottsdale,AZ,1-Jan-08,50000,USD,seed
 Flypaper,,web,Phoenix,AZ,1-Feb-08,3000000,USD,a
 Infusionsoft,105,software,Gilbert,AZ,1-Oct-07,9000000,USD,a
 gAuto,4,web,Scottsdale,AZ,1-Jan-08,250000,USD,seed
 ChosenList.com,5,web,Scottsdale,AZ,1-Oct-06,140000,USD,seed
-ChosenList.com,5,web,Scottsdale,AZ,25-Jan-08,233750,USD,angel
-Digg,60,web,San Francisco,CA,1-Dec-06,8500000,USD,b
 Digg,60,web,San Francisco,CA,1-Oct-05,2800000,USD,a
 Facebook,450,web,Palo Alto,CA,1-Sep-04,500000,USD,angel
-Facebook,450,web,Palo Alto,CA,1-May-05,12700000,USD,a
 

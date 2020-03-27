@@ -14,7 +14,7 @@ const FileInput = ({ onChangeFile }) => {
 
   return (
     // <CSVReader fileEncoding="EUC-KR" onFileLoaded={data => onChangeFile(data)} parserOptions={papaparseOptions} />
-    <CSVReader onFileLoaded={data => onChangeFile(data)} parserOptions={papaparseOptions} />
+    <CSVReader onFileLoaded={data => {onChangeFile(data); console.log('data:', data);}} parserOptions={papaparseOptions} />
   )
 }
 

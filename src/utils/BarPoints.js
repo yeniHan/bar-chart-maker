@@ -79,7 +79,7 @@ BarPoints.prototype.processY = function (y) {
 }
 
 BarPoints.prototype.createMiddlePoint = function () {
-    const { middleItem } = this.listInfo
+    const { middleItem } = this.listInfo.info
     const xM = this.middleX - this.barWidth/2
     const yM = this.processY(middleItem[this.yKey])
     const middlePoint = { xLabel: middleItem[this.xKey].toString() ,x: xM, y: yM, color: middleItem.color}
@@ -91,7 +91,7 @@ BarPoints.prototype.createStartXs = function () {
         const { x, y } = this.points[0]
         return {
             startXLeft : x - this.between/2 - this.barWidth,
-            startXRight : y + this.between/2
+            startXRight : x + this.barWidth + this.between/2
         }
     }else {
         return {
@@ -121,7 +121,7 @@ BarPoints.prototype.createLeftRightPoints = function () {
 
 BarPoints.prototype.getPoints = function () {
 
-    if (this.listInfo.middleItem) {
+    if (this.listInfo.info.middleItem) {
         this.points.push(this.createMiddlePoint())
     }
 

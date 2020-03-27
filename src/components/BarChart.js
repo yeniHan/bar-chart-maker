@@ -6,6 +6,8 @@ const BarChart = ({pointsObj}) => {
     const [points, setPoints] = useState([])
     
     useEffect(() => {
+        console.log('pO:', pointsObj)
+        console.log('pointss:', pointsObj.getPoints())
         setPoints(pointsObj.getPoints())
     }, [pointsObj])
 

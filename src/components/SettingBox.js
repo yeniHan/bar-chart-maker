@@ -13,7 +13,7 @@ const SettingBox = ({dataList, createBarChart, setColor, xKey, yKey, setXKey, se
                 {
                     keys.map((key,idx) => <option key={idx} value={key}>{key.replace( /"/g , '')}</option>)
                 }</select></div>
-                <div>Y축: {yKey? yKey: '지정 안됨'}<select onChange={(e) => setYKey(e.target.value)}>
+                <div>Y축: {yKey? yKey.replace( /"/g , ''): '지정 안됨'}<select onChange={(e) => setYKey(e.target.value)}>
                     <option value={null}>Select</option>
                 {
                     keys.map((key, idx) => <option key={idx} value={key}>{key.replace( /"/g , '')}</option>)
