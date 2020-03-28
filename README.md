@@ -14,7 +14,7 @@ BarPoints의 prototype으로 지정된 getPoints() 함수를 통해, 막대그�
 <br/>
 <h1><b>Bar Chart Maker</b> 사용법</h1>
 <p>
-BarPoints 라이브러리를 사용하여 CVS 파일 데이터를 통해, 막대그래프를 생성해줍니다.
+BarPoints 라이브러리를 사용하여, CVS 파일 데이터를 막대그래프로 시각화해줍니다.
 <br/>
 <br/>
 1. cvs 파일 첨부<br/>
