@@ -1,6 +1,6 @@
 <div align="center">	
     <img src="bar-chart-maker-1.PNG" width="800px"</img> 
-
+    <img src="bar-chart-maker-2.PNG" width="800px"</img> 
 </div>	
 
 <h1>BarPoints 라이브러리</h1>
