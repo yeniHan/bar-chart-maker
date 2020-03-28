@@ -1,3 +1,8 @@
+<div align="center">	
+    <img src="bar-chart-maker-1.png" width="800px"</img> 
+    <img src="bar-chart-maker-2.png" width="800px"</img> 
+</div>	
+
 <h1>BarPoints 라이브러리</h1>
 <p>
 BarPoints는 d3의 막대그래프 그리는 기능을 모사하여 만들어본 라이브러리입니다. 단 CVS 데이터만 사용가능합니다.<br/>
