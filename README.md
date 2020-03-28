@@ -9,7 +9,7 @@ BarPoints의 prototype으로 지정된 getPoints() 함수를 통해, 막대그�
 <br/>
 <h1><b>Bar Chart Maker</b> 사용법</h1>
 <p>
-1. cvs 파일를 첨부<br/>
+1. cvs 파일 첨부<br/>
 2. x 축 과 y 축 설정<br/>
 3. (옵션) 각 바에 적용될 색상 설정 <br/>
 3. 생성 버튼 클릭
