@@ -29,12 +29,12 @@ const SettingBox = ({dataList, createBarChart, setColor, xKey, yKey, setXKey, se
                         <h4>각 데이터의 색상을 지정하세요.</h4>
                         <table>
                             <tr>
-                                <th>{xKey}</th><th>{yKey.replace( /"/g , '')}</th><th>Color picker</th><th>Color</th>
+                                <th>No.</th><th>{xKey}</th><th>{yKey.replace( /"/g , '')}</th><th>Color picker</th><th>Color</th>
                             </tr>
                             {dataList.map((item, idx) => {
                                 return (
                                     <tr key={idx}>
-                                        <td>{item[xKey]}</td><td>{item[yKey]}</td><td className="col-picker"><CirclePicker colors={["#f44336", "#e91e63", "#9c27b0", "#673ab7"]} onChangeComplete={colorInfo => setColor(idx, colorInfo.hex)}/></td><td>{item.color ? item.color: 'default'}</td>
+                                        <td>{idx + 1}</td><td>{item[xKey]}</td><td>{item[yKey]}</td><td className="col-picker"><CirclePicker colors={["#f44336", "#e91e63", "#9c27b0", "#673ab7"]} onChangeComplete={colorInfo => setColor(idx, colorInfo.hex)}/></td><td>{item.color ? item.color: 'default'}</td>
                                     </tr>
                                 )
                             })}

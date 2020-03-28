@@ -9,20 +9,32 @@ const BarChart = ({pointsObj}) => {
         setPoints(pointsObj.getPoints())
     }, [pointsObj])
 
-    const { paperWidth, paperHeight, barWidth } = pointsObj
-    console.log('points:', points)
+    const { paperWidth, paperHeight, barWidth, ySteps, between, yStepsWidth } = pointsObj
+    console.log('y steps:', ySteps)
     
     return (
         <div className="bar-chart">
-            <svg width={paperWidth} height={paperHeight}>
-                {points.map(p => {
-                    const { xLabel, x, y, color } = p
-                    return (
-                        <rect x={x} y={paperHeight - y} width={barWidth} height={y} fill={color ? color: defaultColor} />
-                    )
-                })}
-            </svg>
-            <svg width={paperWidth} height={30}>
+                <svg width={paperWidth} height={paperHeight} viewBox={`0 0 ${paperWidth} ${paperHeight}`} overflow="auto">
+                    {ySteps.map(yStep => {
+                       const { ySText, value } = yStep
+                        return (
+                            <text x={0} y={ySText} font-size="10" width={yStepsWidth}>{value}</text>
+                        )
+                    })}
+                    {ySteps.map(yStep => {
+                       const { ySLine } = yStep
+                        return (
+                            <line x1={0} y1={ySLine} x2={paperWidth} y2={ySLine} stroke="#80808070" stroke-width="1"/>
+                        )
+                    })}
+                    {points.map(p => {
+                        const { xLabel, x, y, color } = p
+                        return (
+                            <rect x={x} y={paperHeight - y} width={barWidth} height={y} fill={color ? color: defaultColor} />
+                        )
+                    })}
+                </svg>
+            <svg width={paperWidth} height="30px" viewBox={`0 0 ${paperWidth} 30`}>
                 {points.map(p => {
                     const { xLabel, x, y, color } = p
                     return (

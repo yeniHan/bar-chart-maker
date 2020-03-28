@@ -4,7 +4,37 @@
     margin: 30px auto;
     background-color: #e8e5e55c;
     border: 1px solid gray;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // .svg-wrapper-1{
+    //     width: 867px;
+    //     border: 1px solid #ccc;
+    //     overflow: auto;
+    //     box-sizing: border-box;
+    //   }
+      
+    //   .svg-wrapper-2 {
+    //     /* allows the svg to autosize */
+    //     width: 100%;
+    //     height: 100%;
+    //   }
+      
+    //   .svg-wrapper-3 {
+    //     height: 100%;
+    //     /* essential for jtable to scroll and not leak */
+    //   }
+      
+    //   .datachart {
+    //     width: 100%;
+    //     height: 100%;
+    //     /* position:relative; */
+    //     /* to make an svg fill its container, this is required, see stackoverflow 9566792 */
+    //   }
+      
+      svg {
+        // width: 100%;
+        // height: 100%;
+        // box-sizing: border-box;
+      }
 }
