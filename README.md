@@ -1,5 +1,5 @@
 <div align="center">	
-    <img src="bar-chart-maker1.PNG" width="800px"</img> 
+    <img src="bar-chart-maker-1.PNG" width="800px"</img> 
     <img src="bar-chart-maker2.PNG" width="800px"</img> 
 </div>	
 
