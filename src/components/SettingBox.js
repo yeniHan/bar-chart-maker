@@ -3,25 +3,41 @@ import { CirclePicker } from 'react-color';
 import './SettingBox.scss';
 import { InputLabel, Select, MenuItem} from "@material-ui/core";
 
-const SettingBox = ({dataList, createBarChart, setColor, xKey, yKey, setXKey, setYKey}) => {
+const SettingBox = ({dataList, createBarChart, setColor, xKey, yKey, onChangeXYKey, yStepsNum, setYStepsNum}) => {
     const keys = Object.keys(dataList[0])
 
     return (
         <div className="setting-box">
-            <div className="axis-setting"> 
-                <div className="select-axis">
-                    <InputLabel>X 축&nbsp;&nbsp;</InputLabel>
-                    <Select onChange={(e) => setXKey(e.target.value)} value={xKey}>
-                        <MenuItem key="null" value="None">None</MenuItem>
-                        {keys.map((key,idx) => <MenuItem key={idx} value={key}>{key.replace( /"/g , '')}</MenuItem>)}
-                    </Select></div>
-                <div className="select-axis">
-                    <InputLabel>Y 축&nbsp;&nbsp;</InputLabel>
-                    <Select onChange={(e) => setYKey(e.target.value)} value={yKey}>
-                        <MenuItem key="null" value="None">None</MenuItem>
-                        {keys.map((key, idx) => <MenuItem key={idx} value={key}>{key.replace( /"/g , '')}</MenuItem>)}
-                    </Select>
-                </div>
+            <div> 
+                <table className="select-setting">
+                    <tr>
+                        <td><InputLabel>X 축&nbsp;&nbsp;</InputLabel></td>
+                        <td>
+                            <Select onChange={(e) => onChangeXYKey('xKey', e.target.value)} value={xKey}>
+                                <MenuItem key="null" value="None">None</MenuItem>
+                                {keys.map((key,idx) => <MenuItem key={idx} value={key}>{key.replace( /"/g , '')}</MenuItem>)}
+                            </Select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><InputLabel>Y 축&nbsp;&nbsp;</InputLabel></td>
+                        <td>
+                            <Select onChange={(e) => onChangeXYKey('yKey', e.target.value)} value={yKey}>
+                                <MenuItem key="null" value="None">None</MenuItem>
+                                {keys.map((key, idx) => <MenuItem key={idx} value={key}>{key.replace( /"/g , '')}</MenuItem>)}
+                            </Select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><InputLabel>Y 축 step 갯수&nbsp;&nbsp;</InputLabel></td>
+                        <td>
+                            <Select onChange={(e) => setYStepsNum(e.target.value)} value={yStepsNum}>
+                                <MenuItem key="null" value="None">None</MenuItem>
+                                {new Array(3, 4, 10, 15).map((step, idx) => <MenuItem key={idx} value={step}>{step}</MenuItem>)}
+                            </Select>
+                        </td>
+                    </tr>
+                </table>
             </div>
             {(xKey !== "None" && yKey !== "None") &&
                 <>
@@ -40,7 +56,7 @@ const SettingBox = ({dataList, createBarChart, setColor, xKey, yKey, setXKey, se
                             })}
                         </table>
                     </div>
-                    <button className="create-btn" onClick={() => createBarChart(xKey, yKey)}>생성</button>
+                    <button className="create-btn" onClick={() => createBarChart()}>생성</button>
                 </>
             }
         </div>

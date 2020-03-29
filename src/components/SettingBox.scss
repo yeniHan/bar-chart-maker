@@ -3,13 +3,10 @@
         border-collapse: collapse;
         border: 1px solid black;
       }
-    .axis-setting{
+    .select-setting {
         margin: 30px auto;
-        width: 550px;
-        .select-axis{
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        td {
+            padding: 0 30px;
         }
     }
 

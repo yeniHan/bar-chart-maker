@@ -1,5 +1,5 @@
 
-const chkAllValueIsNumeric = function (list, yKey) {
+export const yKeyValidationChk = function (list, yKey) {
     return list.every(item => !isNaN(item[yKey]))
 }
 
@@ -20,9 +20,9 @@ const sortList = (data, asec, yKey) => {
 }
 
 
-const BarPoints = function (list, xKey, yKey) {
+const BarPoints = function (list, xKey, yKey, yStepsNum) {
     // valid "Y" key check: 비교가능한 수치여야함!
-    if (chkAllValueIsNumeric(list, yKey)){
+    if (yKeyValidationChk(list, yKey)){
         const sortedList = sortList(list, true, yKey)
         this.listInfo = {
             data: sortedList,
@@ -40,9 +40,9 @@ const BarPoints = function (list, xKey, yKey) {
         this.maxY = this.getMaxY()
         this.yStepsWidth = this.getYStepsWidth()
         this.paperWidth = this.getPaperWidth()
-        this.middleX = Math.floor(this.paperWidth/2)
-        this.ySteps = this.getYSteps()
-        // bar들의 중앙 정렬을 위해 필요한 정보 생성
+        this.middleX = Math.floor((this.paperWidth + this.yStepsWidth)/2)
+        this.ySteps = this.getYSteps(yStepsNum)
+        // bar들의 중앙 정렬을 위해 필요한 정보 생성 
         this.points = []
     } else throw new Error('NOT VALID Y KEY')
 }
@@ -72,9 +72,9 @@ BarPoints.prototype.getMaxY = function () {
     return maxY
 }
 
-BarPoints.prototype.getYSteps = function () {
-    const ySteps = new Array(5).fill(0).map((item, idx) => {
-        let value = Math.floor( this.maxY * (idx)/4)
+BarPoints.prototype.getYSteps = function (yStepsNum) {
+    const ySteps = new Array(yStepsNum + 1).fill(0).map((item, idx) => {
+        let value = Math.floor( this.maxY * (idx/yStepsNum))
         let y = this.processY(this.maxY - value)
         return {
             value: value,
@@ -92,7 +92,6 @@ BarPoints.prototype.getYStepsWidth = function () {
 }
 
 BarPoints.prototype.getPaperWidth = function () {
-    console.log('ySW:', this.yStepsWidth)
     const len = this.listInfo.data.length
     return this.barWidth * len + this.between * ( len + 1 ) + this.yStepsWidth
 }
@@ -143,7 +142,7 @@ BarPoints.prototype.createLeftRightPoints = function () {
 }
 
 BarPoints.prototype.getPoints = function () {
-
+    this.points = []
     if (this.listInfo.info.middleItem) {
         this.points.push(this.createMiddlePoint())
     }
@@ -154,5 +153,35 @@ BarPoints.prototype.getPoints = function () {
     return this.points
 }
 
+// BarPoints.prototype.setXYKey = function (xKey, yKey) {
+//     if (chkAllValueIsNumeric(this.listInfo.data, yKey)){
+//         const sortedList = sortList(this.listInfo.data, true, yKey)
+//         this.listInfo = {
+//             data: sortList(sortedList, true, yKey),
+//             info: this.getListInfo(sortedList)
+//         }
+
+//         this.xKey = xKey
+//         this.yKey = yKey
+//         this.barWidth = this.getBarWidth()
+//         this.between = 10
+//         this.paperHeight = 510
+//         this.yUnit = ( this.paperHeight - 10 )/100
+//         this.startXs = null
+//         // // y value의 최소 uit을 y 최대값을 찾아, paperHeight로 계산하여 설정
+//         this.maxY = this.getMaxY()
+//         this.yStepsWidth = this.getYStepsWidth()
+//         this.paperWidth = this.getPaperWidth()
+//         this.middleX = Math.floor((this.paperWidth + this.yStepsWidth)/2)
+//         this.ySteps = this.getYSteps(this.yStepsNum)
+//         // bar들의 중앙 정렬을 위해 필요한 정보 생성 
+//         this.points = []
+//     } else throw new Error('NOT VALID Y KEY')
+// }
+
+
+BarPoints.prototype.setYstepsNum = function (yStepsNum) {
+    this.yStepsNum = yStepsNum
+}
 
 export default BarPoints;

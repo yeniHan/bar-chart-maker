@@ -10,7 +10,6 @@ const BarChart = ({pointsObj}) => {
     }, [pointsObj])
 
     const { paperWidth, paperHeight, barWidth, ySteps, between, yStepsWidth } = pointsObj
-    console.log('y steps:', ySteps)
     
     return (
         <div className="bar-chart">
@@ -24,7 +23,7 @@ const BarChart = ({pointsObj}) => {
                     {ySteps.map(yStep => {
                        const { ySLine } = yStep
                         return (
-                            <line x1={0} y1={ySLine} x2={paperWidth} y2={ySLine} stroke="#80808070" stroke-width="1"/>
+                            <line x1={0} y1={ySLine} x2={paperWidth} y2={ySLine} stroke="#80808070" stroke-width="1" stroke-dasharray={4}/>
                         )
                     })}
                     {points.map(p => {
