@@ -153,31 +153,31 @@ BarPoints.prototype.getPoints = function () {
     return this.points
 }
 
-// BarPoints.prototype.setXYKey = function (xKey, yKey) {
-//     if (chkAllValueIsNumeric(this.listInfo.data, yKey)){
-//         const sortedList = sortList(this.listInfo.data, true, yKey)
-//         this.listInfo = {
-//             data: sortList(sortedList, true, yKey),
-//             info: this.getListInfo(sortedList)
-//         }
+BarPoints.prototype.setXYKeys = function (xKey, yKey) {
+    if (chkAllValueIsNumeric(this.listInfo.data, yKey)){
+        const sortedList = sortList(this.listInfo.data, true, yKey)
+        this.listInfo = {
+            data: sortList(sortedList, true, yKey),
+            info: this.getListInfo(sortedList)
+        }
 
-//         this.xKey = xKey
-//         this.yKey = yKey
-//         this.barWidth = this.getBarWidth()
-//         this.between = 10
-//         this.paperHeight = 510
-//         this.yUnit = ( this.paperHeight - 10 )/100
-//         this.startXs = null
-//         // // y value의 최소 uit을 y 최대값을 찾아, paperHeight로 계산하여 설정
-//         this.maxY = this.getMaxY()
-//         this.yStepsWidth = this.getYStepsWidth()
-//         this.paperWidth = this.getPaperWidth()
-//         this.middleX = Math.floor((this.paperWidth + this.yStepsWidth)/2)
-//         this.ySteps = this.getYSteps(this.yStepsNum)
-//         // bar들의 중앙 정렬을 위해 필요한 정보 생성 
-//         this.points = []
-//     } else throw new Error('NOT VALID Y KEY')
-// }
+        this.xKey = xKey
+        this.yKey = yKey
+        this.barWidth = this.getBarWidth()
+        this.between = 10
+        this.paperHeight = 510
+        this.yUnit = ( this.paperHeight - 10 )/100
+        this.startXs = null
+        // // y value의 최소 uit을 y 최대값을 찾아, paperHeight로 계산하여 설정
+        this.maxY = this.getMaxY()
+        this.yStepsWidth = this.getYStepsWidth()
+        this.paperWidth = this.getPaperWidth()
+        this.middleX = Math.floor((this.paperWidth + this.yStepsWidth)/2)
+        this.ySteps = this.getYSteps(this.yStepsNum)
+        // bar들의 중앙 정렬을 위해 필요한 정보 생성 
+        this.points = []
+    } else throw new Error('NOT VALID Y KEY')
+}
 
 
 BarPoints.prototype.setYstepsNum = function (yStepsNum) {
