@@ -9,10 +9,11 @@ BarPoints는 d3의 막대그래프 그리는 기능을 모사하여 만들어본
 CVS 데이터에서 변환된 object 리스트와 x축과 y축이 설정을 가지고,<br/>
 new BarPoints(cvs에서 변환된 object list, x축 필드 이름, y축 필드 이름)를 통해 객체를 생성하면, <br/>
 BarPoints의 prototype으로 지정된 getPoints() 함수를 통해, 막대그래프의 각 막대를 그릴 <rect>의 속성값을 반환해줍니다.<br/>
-*Built-in 함수 설명
-- getPoints(): 각 막대에 해당될 <rect> 속성값 반환
-- setXYKeys(): BarPoint 객체의 x축, y축 설정 변경
-- setYStepsNum(): BarPoint 객체의 y축 step 갯수 변경
+<br/>
+*Built-in 함수 설명<br/>
+- getPoints(): 각 막대에 해당될 <rect> 속성값 반환<br/>
+- setXYKeys(): BarPoint 객체의 x축, y축 설정 변경<br/>
+- setYStepsNum(): BarPoint 객체의 y축 step 갯수 변경<br/>
 </p>
 <br/>
 <br/>
