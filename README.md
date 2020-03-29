@@ -6,7 +6,7 @@
 <h1>BarPoints 라이브러리</h1>
 <p>
 BarPoints는 d3의 막대그래프 그리는 기능을 모사하여 만들어본 차트라이브러리입니다. <br/>
-<im>어떠한 다른 기존 차트 라이브러리도 사용되지 않았습니다.</im> <br/>
+<b style="color:red;">어떠한 다른 기존 차트 라이브러리도 사용되지 않았습니다.</b> <br/>
 CVS 데이터만 사용가능하며, CVS 데이터에서 변환된 object 리스트와 x축과 y축이 설정을 가지고,<br/>
 new BarPoints(cvs에서 변환된 object list, x축 필드 이름, y축 필드 이름)를 통해 객체를 생성하면, <br/>
 BarPoints의 prototype으로 지정된 getPoints() 함수를 통해, 막대그래프의 각 막대를 그릴 "rect"의 속성값을 반환해줍니다.<br/>
