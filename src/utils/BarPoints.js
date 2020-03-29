@@ -154,7 +154,7 @@ BarPoints.prototype.getPoints = function () {
 }
 
 BarPoints.prototype.setXYKeys = function (xKey, yKey) {
-    if (chkAllValueIsNumeric(this.listInfo.data, yKey)){
+    if (yKeyValidationChk(this.listInfo.data, yKey)){
         const sortedList = sortList(this.listInfo.data, true, yKey)
         this.listInfo = {
             data: sortList(sortedList, true, yKey),
