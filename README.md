@@ -19,7 +19,7 @@ BarPoints의 prototype으로 지정된 getPoints() 함수를 통해, 막대그�
 </p>
 <br/>
 <br/>
-<h1><<\BarChart\>>컴포넌트</h1>
+<h1>/<BarChart/>컴포넌트</h1>
 <p></p>
 <h1><b>Bar Chart Maker</b> 사용법</h1>
 <p>
